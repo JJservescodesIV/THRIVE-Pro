@@ -1,0 +1,1567 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THRIVE Pro — Advanced Career Growth Platform</title>
+
+<style>
+/* ============ ENHANCED THEME ============ */
+:root {
+  --clr-bg1: #1a1f2e;
+  --clr-bg2: #0f172a;
+  --clr-accent: #3b82f6;
+  --clr-accent-light: #60a5fa;
+  --clr-accent-dark: #2563eb;
+  --clr-text: #f8fafc;
+  --clr-muted: #94a3b8;
+  --clr-card: #1e293b;
+  --clr-surface: #334155;
+  --clr-border: #475569;
+  --clr-gold: #fbbf24;
+  --clr-danger: #ef4444;
+  --clr-warn: #f59e0b;
+  --clr-success: #10b981;
+  --clr-info: #06b6d4;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.2);
+  --radius: 0.75rem;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--clr-bg1) 0%, var(--clr-bg2) 100%);
+  color: var(--clr-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============ HEADER ============ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 1rem;
+  box-shadow: var(--shadow-md);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--clr-accent-light), var(--clr-info));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* ============ STATS DASHBOARD ============ */
+.stats-dashboard {
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.stat-card {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--clr-border);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--clr-accent), var(--clr-info));
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  color: var(--clr-muted);
+  font-size: 0.875rem;
+}
+
+.stat-change {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  background: var(--clr-success);
+  color: white;
+}
+
+/* ============ XP PROGRESS ============ */
+.xp-section {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+
+.xp-container {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--clr-border);
+}
+
+.xp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.path-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.path-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.xp-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--clr-muted);
+}
+
+.xp-bar {
+  height: 24px;
+  background: var(--clr-surface);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.xp-bar-inner {
+  height: 100%;
+  background: linear-gradient(90deg, var(--clr-accent), var(--clr-info));
+  width: 0;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.xp-bar-inner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.xp-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ============ MAIN LAYOUT ============ */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============ GOAL FILTERS ============ */
+.filters-section {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--clr-border);
+}
+
+.filter-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.875rem;
+}
+
+.filter-chip:hover {
+  background: var(--clr-accent);
+  border-color: var(--clr-accent);
+}
+
+.filter-chip.active {
+  background: var(--clr-accent);
+  border-color: var(--clr-accent);
+  color: white;
+}
+
+/* ============ GOALS ============ */
+.goals-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.goal-card {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--clr-border);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.goal-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--clr-accent);
+}
+
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.goal-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.goal-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge.priority-high { background: var(--clr-danger); }
+.badge.priority-med { background: var(--clr-warn); }
+.badge.priority-low { background: var(--clr-info); }
+.badge.category { background: var(--clr-surface); }
+.badge.status { background: var(--clr-accent); }
+
+.goal-progress {
+  margin-bottom: 1rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--clr-muted);
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--clr-surface);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background: linear-gradient(90deg, var(--clr-success), var(--clr-info));
+  transition: width 0.5s ease;
+}
+
+.milestones {
+  margin-bottom: 1rem;
+}
+
+.milestone {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.milestone:hover {
+  transform: translateX(4px);
+}
+
+.milestone-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--clr-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.milestone-checkbox.checked {
+  background: var(--clr-accent);
+}
+
+.milestone-checkbox.checked::after {
+  content: '✓';
+  color: white;
+  font-size: 0.75rem;
+}
+
+.milestone-text {
+  flex: 1;
+  transition: var(--transition);
+}
+
+.milestone.completed .milestone-text {
+  color: var(--clr-muted);
+  text-decoration: line-through;
+}
+
+.goal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--clr-border);
+  font-size: 0.875rem;
+  color: var(--clr-muted);
+}
+
+/* ============ ADD GOAL FORM ============ */
+.add-goal-section {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--clr-border);
+}
+
+.add-goal-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-muted);
+}
+
+.form-input, .form-select {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-surface);
+  color: var(--clr-text);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-input:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ============ SIDEBAR ============ */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 100px;
+}
+
+/* Pomodoro Timer */
+.pomodoro-widget {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--clr-border);
+  text-align: center;
+}
+
+.pomodoro-timer {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'SF Mono', 'Monaco', monospace;
+  margin: 1rem 0;
+  background: linear-gradient(135deg, var(--clr-accent-light), var(--clr-info));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pomodoro-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Streak Tracker */
+.streak-widget {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--clr-border);
+  text-align: center;
+}
+
+.streak-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--clr-gold);
+  margin: 0.5rem 0;
+}
+
+.streak-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  margin-top: 1rem;
+}
+
+.streak-day {
+  aspect-ratio: 1;
+  background: var(--clr-surface);
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.streak-day.active {
+  background: var(--clr-success);
+  color: white;
+}
+
+.streak-day:hover {
+  transform: scale(1.1);
+}
+
+/* Recognition Center */
+.recognition-widget {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--clr-border);
+}
+
+.token-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.token-icon {
+  font-size: 2rem;
+}
+
+/* ============ BUTTONS ============ */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.btn-primary {
+  background: var(--clr-accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--clr-accent-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: var(--clr-surface);
+  color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+}
+
+.btn-secondary:hover {
+  background: var(--clr-border);
+}
+
+.btn-gold {
+  background: var(--clr-gold);
+  color: var(--clr-bg1);
+}
+
+.btn-gold:hover {
+  background: #fcd34d;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============ MODALS ============ */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--clr-border);
+  animation: modalSlide 0.3s ease;
+}
+
+@keyframes modalSlide {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--clr-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  color: var(--clr-text);
+}
+
+/* ============ REWARDS ============ */
+.rewards-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.reward-item {
+  background: var(--clr-surface);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--clr-border);
+  transition: var(--transition);
+}
+
+.reward-item:hover {
+  border-color: var(--clr-gold);
+  transform: translateX(4px);
+}
+
+.reward-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reward-icon {
+  font-size: 2rem;
+}
+
+.reward-details h4 {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.reward-details p {
+  font-size: 0.875rem;
+  color: var(--clr-muted);
+}
+
+.reward-cost {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--clr-gold);
+}
+
+/* ============ NOTIFICATIONS ============ */
+.notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--clr-accent);
+  animation: slideIn 0.3s ease;
+  z-index: 900;
+  max-width: 320px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notification-icon {
+  font-size: 1.5rem;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .header-content {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .stats-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .notification {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+}
+
+/* ============ UTILITIES ============ */
+.hidden { display: none !important; }
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+</style>
+</head>
+
+<body>
+<!-- Header -->
+<header>
+  <div class="header-content">
+    <div class="header-title">
+      <span>🚀</span>
+      <span>THRIVE Pro</span>
+    </div>
+    <div class="header-controls">
+      <button class="btn btn-secondary btn-sm" onclick="toggleTheme()">🌙</button>
+      <button class="btn btn-secondary btn-sm" onclick="exportData()">📥 Export</button>
+      <button class="btn btn-gold btn-sm" onclick="toggleRole()" id="roleToggle"></button>
+    </div>
+  </div>
+</header>
+
+<!-- Stats Dashboard -->
+<div class="stats-dashboard">
+  <div class="stat-card">
+    <div class="stat-icon">📈</div>
+    <div class="stat-value" id="statGoals">0</div>
+    <div class="stat-label">Active Goals</div>
+    <div class="stat-change">+12%</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">✅</div>
+    <div class="stat-value" id="statCompleted">0</div>
+    <div class="stat-label">Completed This Month</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">🔥</div>
+    <div class="stat-value" id="statStreak">0</div>
+    <div class="stat-label">Day Streak</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">⏱️</div>
+    <div class="stat-value" id="statFocus">0h</div>
+    <div class="stat-label">Focus Time Today</div>
+  </div>
+</div>
+
+<!-- XP Progress -->
+<div class="xp-section">
+  <div class="xp-container">
+    <div class="xp-header">
+      <div class="path-info">
+        <div class="path-title" id="pathTitle">Senior Account Executive</div>
+        <div class="xp-details">
+          <span>Level <span id="currentLevel">1</span></span>
+          <span>•</span>
+          <span><span id="xpCount">0</span> / <span id="xpRequired">800</span> XP</span>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-sm" onclick="showPathDetails()">View Path</button>
+    </div>
+    <div class="xp-bar">
+      <div class="xp-bar-inner" id="xpBar">
+        <div class="xp-text" id="xpPercent">0%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+  <!-- Goals Section -->
+  <div class="goals-section">
+    <!-- Add Goal Form -->
+    <div class="add-goal-section">
+      <h3 class="mb-1">Create New Goal</h3>
+      <form class="add-goal-form" onsubmit="addGoal(event)">
+        <div class="form-group">
+          <label class="form-label">Goal Title</label>
+          <input type="text" class="form-input" id="goalInput" placeholder="What do you want to achieve?" required="">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select class="form-select" id="categoryInput">
+              <option value="Performance">Performance</option>
+              <option value="Skill">Skill Development</option>
+              <option value="Leadership">Leadership</option>
+              <option value="Innovation">Innovation</option>
+              <option value="Collaboration">Collaboration</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Priority</label>
+            <select class="form-select" id="priorityInput">
+              <option value="high">High</option>
+              <option value="med">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Due Date</label>
+            <input type="date" class="form-input" id="dueInput" required="">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Goal</button>
+      </form>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-section">
+      <div class="filter-chips">
+        <div class="filter-chip active" data-filter="all" onclick="filterGoals('all')">All Goals</div>
+        <div class="filter-chip" data-filter="active" onclick="filterGoals('active')">Active</div>
+        <div class="filter-chip" data-filter="completed" onclick="filterGoals('completed')">Completed</div>
+        <div class="filter-chip" data-filter="high" onclick="filterGoals('high')">High Priority</div>
+      </div>
+    </div>
+
+    <!-- Goals Container -->
+    <div class="goals-container" id="goalsContainer"></div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <!-- Pomodoro Timer -->
+    <div class="pomodoro-widget">
+      <h3>🎯 Focus Session</h3>
+      <div class="pomodoro-timer" id="pomoTimer">25:00</div>
+      <div class="progress-bar">
+        <div class="progress-bar-inner" id="pomoProgress" style="width: 0%"></div>
+      </div>
+      <div class="pomodoro-controls">
+        <button class="btn btn-primary btn-sm" id="pomoStart" onclick="startPomo()">Start</button>
+        <button class="btn btn-secondary btn-sm" id="pomoPause" onclick="pausePomo()" disabled="">Pause</button>
+        <button class="btn btn-secondary btn-sm" id="pomoReset" onclick="resetPomo()">Reset</button>
+      </div>
+    </div>
+
+    <!-- Streak Tracker -->
+    <div class="streak-widget">
+      <h3>🔥 Daily Streak</h3>
+      <div class="streak-number" id="streakNumber">0</div>
+      <div class="streak-label">consecutive days</div>
+      <div class="streak-calendar" id="streakCalendar"></div>
+    </div>
+
+    <!-- Recognition Center -->
+    <div class="recognition-widget">
+      <h3>🏆 Recognition</h3>
+      <div class="token-display">
+        <span class="token-icon">🪙</span>
+        <span id="tokenCount">0</span>
+      </div>
+      <button class="btn btn-gold btn-sm" style="width: 100%" onclick="openStore()">
+        Recognition Center
+      </button>
+    </div>
+  </aside>
+</div>
+
+<!-- Modals -->
+<!-- Recognition Center Modal -->
+<div class="modal" id="storeModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">🏆 Recognition Center</h2>
+      <button class="modal-close" onclick="closeModal('storeModal')">×</button>
+    </div>
+    <div class="rewards-grid">
+      <div class="reward-item">
+        <div class="reward-info">
+          <div class="reward-icon">👏</div>
+          <div class="reward-details">
+            <h4>LinkedIn Kudos</h4>
+            <p>Public recognition on LinkedIn</p>
+          </div>
+        </div>
+        <div class="reward-cost">
+          <span>15 🪙</span>
+          <button class="btn btn-gold btn-sm" onclick="claimReward('LinkedIn Kudos', 15)">Claim</button>
+        </div>
+      </div>
+      <div class="reward-item">
+        <div class="reward-info">
+          <div class="reward-icon">🍕</div>
+          <div class="reward-details">
+            <h4>Team Lunch</h4>
+            <p>Lunch with the team on company</p>
+          </div>
+        </div>
+        <div class="reward-cost">
+          <span>30 🪙</span>
+          <button class="btn btn-gold btn-sm" onclick="claimReward('Team Lunch', 30)">Claim</button>
+        </div>
+      </div>
+      <div class="reward-item">
+        <div class="reward-info">
+          <div class="reward-icon">🏖️</div>
+          <div class="reward-details">
+            <h4>Extra Day Off</h4>
+            <p>Additional PTO day</p>
+          </div>
+        </div>
+        <div class="reward-cost">
+          <span>50 🪙</span>
+          <button class="btn btn-gold btn-sm" onclick="claimReward('Extra Day Off', 50)">Claim</button>
+        </div>
+      </div>
+      <div class="reward-item">
+        <div class="reward-info">
+          <div class="reward-icon">🎓</div>
+          <div class="reward-details">
+            <h4>Course Sponsorship</h4>
+            <p>Company pays for online course</p>
+          </div>
+        </div>
+        <div class="reward-cost">
+          <span>75 🪙</span>
+          <button class="btn btn-gold btn-sm" onclick="claimReward('Course Sponsorship', 75)">Claim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Notification Template -->
+<div class="notification hidden" id="notification">
+  <div class="notification-content">
+    <span class="notification-icon" id="notificationIcon"></span>
+    <div>
+      <div id="notificationTitle"></div>
+      <div id="notificationMessage" style="font-size: 0.875rem; color: var(--clr-muted);"></div>
+    </div>
+  </div>
+</div>
+
+<audio id="ding" src="https://cdn.pixabay.com/audio/2022/10/16/audio_12b7b9b8b9.mp3"></audio>
+
+<script>
+// ============ DATA & STATE ============
+let state = {
+  role: localStorage.getItem('thriveRole') || 'Agent',
+  goals: JSON.parse(localStorage.getItem('thriveGoals') || 'null') || [],
+  xp: parseInt(localStorage.getItem('thriveXP') || '0', 10),
+  tokens: parseInt(localStorage.getItem('thriveTokens') || '0', 10),
+  level: parseInt(localStorage.getItem('thriveLevel') || '1', 10),
+  streak: parseInt(localStorage.getItem('thriveStreak') || '0', 10),
+  lastActiveDate: localStorage.getItem('thriveLastActive') || new Date().toDateString(),
+  focusTimeToday: parseInt(localStorage.getItem('thriveFocusToday') || '0', 10),
+  theme: localStorage.getItem('thriveTheme') || 'dark',
+  filter: 'all'
+};
+
+const LEVELS = [
+  { level: 1, title: "Junior Associate", xp: 0 },
+  { level: 2, title: "Associate", xp: 800 },
+  { level: 3, title: "Senior Associate", xp: 2000 },
+  { level: 4, title: "Team Lead", xp: 4000 },
+  { level: 5, title: "Manager", xp: 7000 },
+  { level: 6, title: "Senior Manager", xp: 11000 },
+  { level: 7, title: "Director", xp: 16000 },
+  { level: 8, title: "Senior Director", xp: 22000 },
+  { level: 9, title: "Vice President", xp: 30000 },
+  { level: 10, title: "Senior VP", xp: 40000 }
+];
+
+// Pomodoro state
+let pomoState = {
+  seconds: 1500,
+  interval: null,
+  running: false,
+  sessionCount: 0
+};
+
+// ============ INITIALIZATION ============
+function init() {
+  checkStreak();
+  renderAll();
+  initializeStreakCalendar();
+  setInterval(saveState, 5000); // Auto-save every 5 seconds
+}
+
+// ============ RENDERING ============
+function renderAll() {
+  renderHeader();
+  renderStats();
+  renderXP();
+  renderGoals();
+  renderSidebar();
+}
+
+function renderHeader() {
+  document.getElementById('roleToggle').textContent = 
+    state.role === 'Agent' ? '👤 Switch to Supervisor' : '👔 Switch to Agent';
+}
+
+function renderStats() {
+  const activeGoals = state.goals.filter(g => g.status !== 'Completed' && g.status !== 'Archived').length;
+  const completedThisMonth = state.goals.filter(g => {
+    if (g.status !== 'Completed') return false;
+    const completedDate = new Date(g.completedDate || '2025-01-01');
+    const now = new Date();
+    return completedDate.getMonth() === now.getMonth() && 
+           completedDate.getFullYear() === now.getFullYear();
+  }).length;
+
+  document.getElementById('statGoals').textContent = activeGoals;
+  document.getElementById('statCompleted').textContent = completedThisMonth;
+  document.getElementById('statStreak').textContent = state.streak;
+  document.getElementById('statFocus').textContent = `${Math.floor(state.focusTimeToday / 60)}h`;
+}
+
+function renderXP() {
+  const currentLevelData = LEVELS[state.level - 1];
+  const nextLevelData = LEVELS[state.level] || LEVELS[LEVELS.length - 1];
+  const xpInLevel = state.xp - currentLevelData.xp;
+  const xpNeeded = nextLevelData.xp - currentLevelData.xp;
+  const percent = Math.min(100, (xpInLevel / xpNeeded) * 100);
+
+  document.getElementById('pathTitle').textContent = currentLevelData.title;
+  document.getElementById('currentLevel').textContent = state.level;
+  document.getElementById('xpCount').textContent = state.xp;
+  document.getElementById('xpRequired').textContent = nextLevelData.xp;
+  document.getElementById('xpBar').style.width = `${percent}%`;
+  document.getElementById('xpPercent').textContent = `${Math.floor(percent)}%`;
+}
+
+function renderGoals() {
+  const container = document.getElementById('goalsContainer');
+  const filteredGoals = filterGoalsList(state.goals);
+  
+  if (filteredGoals.length === 0) {
+    container.innerHTML = `
+      <div class="text-center" style="padding: 3rem; color: var(--clr-muted);">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">📋</div>
+        <p>No goals found. Create your first goal above!</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filteredGoals.map((goal, index) => {
+    const progress = calculateProgress(goal);
+    return `
+      <div class="goal-card" data-goal-id="${index}">
+        <div class="goal-header">
+          <h3 class="goal-title">${goal.title}</h3>
+          <div class="goal-badges">
+            <span class="badge priority-${goal.priority}">${goal.priority}</span>
+            <span class="badge category">${goal.category}</span>
+            <span class="badge status">${goal.status}</span>
+          </div>
+        </div>
+        
+        <div class="goal-progress">
+          <div class="progress-header">
+            <span>Progress</span>
+            <span>${progress}%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: ${progress}%"></div>
+          </div>
+        </div>
+
+        <div class="milestones">
+          ${goal.milestones.map((m, mi) => `
+            <div class="milestone ${m.done ? 'completed' : ''}" onclick="toggleMilestone(${index}, ${mi})">
+              <div class="milestone-checkbox ${m.done ? 'checked' : ''}"></div>
+              <span class="milestone-text">${m.text}</span>
+            </div>
+          `).join('')}
+          ${state.role === 'Agent' ? `
+            <form onsubmit="addMilestone(event, ${index})" style="margin-top: 0.5rem;">
+              <input type="text" class="form-input" placeholder="Add milestone..." style="width: calc(100% - 3rem); display: inline-block;">
+              <button type="submit" class="btn btn-primary btn-sm" style="width: 2.5rem;">+</button>
+            </form>
+          ` : ''}
+        </div>
+
+        <div class="goal-footer">
+          <span>Due: ${formatDate(goal.due)}</span>
+          <div>
+            ${state.role === 'Supervisor' ? `
+              <select class="form-select" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;" 
+                      onchange="updateStatus(${index}, this.value)">
+                ${['Not Started', 'In Progress', 'Completed', 'Approved'].map(s => 
+                  `<option value="${s}" ${s === goal.status ? 'selected' : ''}>${s}</option>`
+                ).join('')}
+              </select>
+            ` : ''}
+            <button class="btn btn-secondary btn-sm" onclick="archiveGoal(${index})">Archive</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderSidebar() {
+  // Update tokens
+  document.getElementById('tokenCount').textContent = state.tokens;
+  
+  // Update streak
+  document.getElementById('streakNumber').textContent = state.streak;
+  
+  // Render Pomodoro
+  renderPomodoro();
+}
+
+function renderPomodoro() {
+  const minutes = Math.floor(pomoState.seconds / 60);
+  const seconds = pomoState.seconds % 60;
+  document.getElementById('pomoTimer').textContent = 
+    `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  
+  const progress = ((1500 - pomoState.seconds) / 1500) * 100;
+  document.getElementById('pomoProgress').style.width = `${progress}%`;
+  
+  document.getElementById('pomoStart').disabled = pomoState.running;
+  document.getElementById('pomoPause').disabled = !pomoState.running;
+}
+
+// ============ GOAL MANAGEMENT ============
+function addGoal(event) {
+  event.preventDefault();
+  
+  const title = document.getElementById('goalInput').value.trim();
+  const category = document.getElementById('categoryInput').value;
+  const priority = document.getElementById('priorityInput').value;
+  const due = document.getElementById('dueInput').value;
+  
+  if (!title) return;
+  
+  const newGoal = {
+    id: Date.now(),
+    title,
+    category,
+    priority,
+    due,
+    status: 'Not Started',
+    milestones: [],
+    createdDate: new Date().toISOString(),
+    completedDate: null
+  };
+  
+  state.goals.unshift(newGoal);
+  state.xp += 20;
+  state.tokens += 5;
+  
+  showNotification('✨', 'Goal Created!', '+20 XP, +5 tokens');
+  saveState();
+  renderAll();
+  
+  event.target.reset();
+}
+
+function addMilestone(event, goalIndex) {
+  event.preventDefault();
+  
+  const input = event.target.querySelector('input');
+  const text = input.value.trim();
+  
+  if (!text) return;
+  
+  state.goals[goalIndex].milestones.push({ text, done: false });
+  state.xp += 5;
+  
+  input.value = '';
+  saveState();
+  renderAll();
+}
+
+function toggleMilestone(goalIndex, milestoneIndex) {
+  if (state.role === 'Supervisor') return;
+  
+  const milestone = state.goals[goalIndex].milestones[milestoneIndex];
+  milestone.done = !milestone.done;
+  
+  if (milestone.done) {
+    state.xp += 15;
+    state.tokens += 3;
+    showNotification('✅', 'Milestone Complete!', '+15 XP, +3 tokens');
+  }
+  
+  // Check if all milestones are done
+  const goal = state.goals[goalIndex];
+  const allDone = goal.milestones.length > 0 && goal.milestones.every(m => m.done);
+  
+  if (allDone && goal.status !== 'Completed') {
+    goal.status = 'Completed';
+    goal.completedDate = new Date().toISOString();
+    state.xp += 50;
+    state.tokens += 10;
+    showNotification('🎉', 'Goal Completed!', '+50 XP, +10 tokens');
+    document.getElementById('ding').play();
+  }
+  
+  saveState();
+  renderAll();
+}
+
+function updateStatus(goalIndex, newStatus) {
+  state.goals[goalIndex].status = newStatus;
+  
+  if (newStatus === 'Approved') {
+    state.xp += 100;
+    state.tokens += 20;
+    showNotification('🏆', 'Goal Approved!', '+100 XP, +20 tokens');
+  }
+  
+  saveState();
+  renderAll();
+}
+
+function archiveGoal(goalIndex) {
+  if (confirm('Archive this goal?')) {
+    state.goals[goalIndex].status = 'Archived';
+    saveState();
+    renderAll();
+  }
+}
+
+// ============ FILTERS ============
+function filterGoals(filter) {
+  state.filter = filter;
+  
+  // Update active filter chip
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.classList.toggle('active', chip.dataset.filter === filter);
+  });
+  
+  renderGoals();
+}
+
+function filterGoalsList(goals) {
+  switch (state.filter) {
+    case 'active':
+      return goals.filter(g => g.status === 'In Progress' || g.status === 'Not Started');
+    case 'completed':
+      return goals.filter(g => g.status === 'Completed' || g.status === 'Approved');
+    case 'high':
+      return goals.filter(g => g.priority === 'high');
+    default:
+      return goals.filter(g => g.status !== 'Archived');
+  }
+}
+
+// ============ POMODORO ============
+function startPomo() {
+  if (pomoState.running) return;
+  
+  pomoState.running = true;
+  pomoState.interval = setInterval(tickPomo, 1000);
+  renderPomodoro();
+}
+
+function pausePomo() {
+  pomoState.running = false;
+  clearInterval(pomoState.interval);
+  renderPomodoro();
+}
+
+function resetPomo() {
+  pausePomo();
+  pomoState.seconds = 1500;
+  renderPomodoro();
+}
+
+function tickPomo() {
+  if (pomoState.seconds > 0) {
+    pomoState.seconds--;
+    state.focusTimeToday++;
+    renderPomodoro();
+    
+    if (pomoState.seconds === 0) {
+      completePomo();
+    }
+  }
+}
+
+function completePomo() {
+  pausePomo();
+  pomoState.sessionCount++;
+  state.xp += 25;
+  state.tokens += 5;
+  
+  showNotification('🎯', 'Focus Session Complete!', '+25 XP, +5 tokens');
+  document.getElementById('ding').play();
+  
+  if (navigator.vibrate) {
+    navigator.vibrate([200, 100, 200]);
+  }
+  
+  saveState();
+  renderAll();
+}
+
+// ============ REWARDS ============
+function openStore() {
+  document.getElementById('storeModal').style.display = 'flex';
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+}
+
+function claimReward(name, cost) {
+  if (state.tokens >= cost) {
+    state.tokens -= cost;
+    showNotification('🎁', `Claimed: ${name}!`, 'Check your email for details');
+    closeModal('storeModal');
+    saveState();
+    renderAll();
+  } else {
+    showNotification('⚠️', 'Insufficient Tokens', `You need ${cost - state.tokens} more tokens`);
+  }
+}
+
+// ============ UTILITIES ============
+function calculateProgress(goal) {
+  if (goal.milestones.length === 0) return 0;
+  const completed = goal.milestones.filter(m => m.done).length;
+  return Math.round((completed / goal.milestones.length) * 100);
+}
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const today = new Date();
+  const diffTime = date - today;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
+  if (diffDays === 0) return 'Today';
+  if (diffDays === 1) return 'Tomorrow';
+  if (diffDays < 0) return `${Math.abs(diffDays)} days ago`;
+  if (diffDays < 7) return `${diffDays} days`;
+  
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function checkStreak() {
+  const today = new Date().toDateString();
+  const lastActive = new Date(state.lastActiveDate).toDateString();
+  const yesterday = new Date(Date.now() - 86400000).toDateString();
+  
+  if (today !== lastActive) {
+    if (lastActive === yesterday) {
+      state.streak++;
+      showNotification('🔥', `${state.streak} Day Streak!`, 'Keep it up!');
+    } else {
+      state.streak = 1;
+    }
+    state.lastActiveDate = today;
+    state.focusTimeToday = 0;
+    saveState();
+  }
+}
+
+function initializeStreakCalendar() {
+  const calendar = document.getElementById('streakCalendar');
+  const today = new Date();
+  
+  for (let i = 27; i >= 0; i--) {
+    const date = new Date(today);
+    date.setDate(date.getDate() - i);
+    const day = document.createElement('div');
+    day.className = 'streak-day';
+    day.textContent = date.getDate();
+    
+    // Mark active days (simplified logic)
+    if (i < state.streak) {
+      day.classList.add('active');
+    }
+    
+    calendar.appendChild(day);
+  }
+}
+
+function showNotification(icon, title, message) {
+  const notification = document.getElementById('notification');
+  document.getElementById('notificationIcon').textContent = icon;
+  document.getElementById('notificationTitle').textContent = title;
+  document.getElementById('notificationMessage').textContent = message;
+  
+  notification.classList.remove('hidden');
+  
+  setTimeout(() => {
+    notification.classList.add('hidden');
+  }, 4000);
+}
+
+function toggleRole() {
+  state.role = state.role === 'Agent' ? 'Supervisor' : 'Agent';
+  saveState();
+  renderAll();
+}
+
+function toggleTheme() {
+  // Theme toggle functionality would go here
+  showNotification('🌙', 'Coming Soon', 'Theme switching will be available soon!');
+}
+
+function exportData() {
+  const data = {
+    goals: state.goals,
+    stats: {
+      xp: state.xp,
+      tokens: state.tokens,
+      level: state.level,
+      streak: state.streak
+    },
+    exportDate: new Date().toISOString()
+  };
+  
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `thrive-export-${new Date().toISOString().split('T')[0]}.json`;
+  a.click();
+  
+  showNotification('📥', 'Data Exported', 'Your progress has been downloaded');
+}
+
+function showPathDetails() {
+  showNotification('🛤️', 'Career Path', `Next: ${LEVELS[state.level]?.title || 'Max Level'}`);
+}
+
+function saveState() {
+  localStorage.setItem('thriveGoals', JSON.stringify(state.goals));
+  localStorage.setItem('thriveXP', state.xp);
+  localStorage.setItem('thriveTokens', state.tokens);
+  localStorage.setItem('thriveLevel', state.level);
+  localStorage.setItem('thriveStreak', state.streak);
+  localStorage.setItem('thriveLastActive', state.lastActiveDate);
+  localStorage.setItem('thriveFocusToday', state.focusTimeToday);
+  localStorage.setItem('thriveRole', state.role);
+  
+  // Check for level up
+  const nextLevel = LEVELS[state.level];
+  if (nextLevel && state.xp >= nextLevel.xp) {
+    state.level++;
+    showNotification('🎊', 'LEVEL UP!', `You are now ${nextLevel.title}`);
+    document.getElementById('ding').play();
+    saveState();
+  }
+}
+
+// ============ INIT ============
+init();
+
+// Close modals on outside click
+window.onclick = function(event) {
+  if (event.target.classList.contains('modal')) {
+    event.target.style.display = 'none';
+  }
+}
+</script>
+
+
+
+</body></html>
